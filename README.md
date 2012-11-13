@@ -5,17 +5,15 @@ In NodeJs programs, printing structured arrays to the console can be annoying. `
 
 It can generate a pretty table out of
  - an array of arrays
- - an array of other objects
- - an array of a mix of them
- - data with headers
-
+ - an array of dictionaries; this is perhaps the most common thanks to (no)SQL
+ - data with or without headers
 
 For example, here's how tablify handles an array of arrays:
 
 ```coffee-script
 tablify = require('tablify').tablify
 data = [
-	[1,2,3], 
+	[1,2,3]
 	["cat","dog",Math.PI]
 ]
 console.log tablify data
@@ -28,9 +26,6 @@ Output:
 | cat | dog | 3.141592653589793 |
 ---------------------------------
 ```
-
-Tablify can also handle arrays of dictionaries; you might expect such a structure to come back from a SQL call or no-SQL call, for example. We'll get
-to that in a sec.
 
 ### Showing headers
 
@@ -57,7 +52,7 @@ Output:
 
 ### Even cooler: an array of dictionaries
 
-Even with inconsistent keys, you can print an array of dictionaries:
+Even with inconsistent keys, you can print an array of dictionaries. Column headers are calculated automatically using the union of all keys.
 
 ```coffee-script
 data = [
