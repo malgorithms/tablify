@@ -99,14 +99,6 @@ Any subset of these can be passed as a second parameter to tablify, in a diction
   - `row_sep_char` default = '-'
 
 
-```coffee-script
-data = [
-	[1,2,3], 
-	["cat","dog",Math.PI]
-]
-console.log tablify data, {show_index: true}
-```
-
 
 # Installation
 ```
