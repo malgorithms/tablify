@@ -45,15 +45,6 @@ Output:
 ---------------
 ```
 
-### Including row numbers
-
-data = [
-	[1,2,3], 
-	["cat","dog",Math.PI]
-]
-console.log tablify data, {show_index: true}
-```
-
 ### Even cooler: an array of dictionaries
 
 Even with inconsistent keys, you can print an array of dictionaries:
@@ -79,6 +70,7 @@ Output:
 ```
 
 ### Selecting only specific keys:
+
 ```
 console.log tablify data, {keys: ["age","name"]}
 ```
@@ -93,6 +85,17 @@ Output:
 | 2 |      | Sam   |
 --------------------
 ```
+
+### Including row numbers
+
+data = [
+	[1,2,3], 
+	["cat","dog",Math.PI]
+]
+console.log tablify data, {show_index: true}
+```
+
+
 
 # Installation
 ```
