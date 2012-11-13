@@ -3,7 +3,7 @@ tablify
 
 In nodeJs programs, it's a pain to print data structures to the console. `tablify` turns an array of structures into a pretty-printed table.
 
-For example:
+For example, here's how tablify handles an array of arrays:
 
 ```coffee-script
 tablify = require('tablify').tablify
@@ -21,6 +21,9 @@ Output:
 | cat | dog | 3.141592653589793 |
 ---------------------------------
 ```
+
+Tablify can also handle arrays of dictionaries; you might expect such a structure to come back from a SQL call or no-SQL call, for example. We'll get
+to that in a sec.
 
 ### Showing headers
 
