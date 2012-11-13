@@ -86,7 +86,18 @@ Output:
 --------------------
 ```
 
-### Including row numbers
+# List of Options 
+
+Any subset of these can be passed as a second parameter to tablify, in a dictionary.
+
+  - `show_index:`   include a column showing the row number of each row. The default is `false` unless tablify is passed an array of dictionaries, in which case the default is `true`
+  - `has_header:`   include the first row as a header; this defaults to `false` unless passed an array of dicts, in which case 
+  - `keys`:         which columns to use, when tablifying an array of dictionaries; by default all keys are used in alphabetical order
+  - `row_start`:    default = '| '
+  - `row_end`:      default = ' |'
+  - `spacer`:       default = ' | '
+  - `row_sep_char`: default = '-'
+
 
 ```coffee-script
 data = [
@@ -95,7 +106,6 @@ data = [
 ]
 console.log tablify data, {show_index: true}
 ```
-
 
 
 # Installation
