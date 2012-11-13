@@ -24,7 +24,7 @@ Output:
 
 ### Showing headers
 
-If your structure has a heading, pass the optional "has_header" param:
+If your structure has a header row, pass the optional "has_header" param:
 
 ```coffee-script
 data = [
