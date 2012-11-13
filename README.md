@@ -91,7 +91,7 @@ Output:
 Any subset of these can be passed as a second parameter to tablify, in a dictionary.
 
   - `show_index`   include a column showing the row number of each row. The default is `false` unless tablify is passed an array of dictionaries, in which case the default is `true`
-  - `has_header`   include the first row as a header; this defaults to `false` unless passed an array of dicts, in which case 
+  - `has_header`   include the first row as a header; this defaults to `false` unless passed an array of dicts, in which case the keys are used as a first row and this defaults to `true`
   - `keys`         which columns to use, when tablifying an array of dictionaries; by default all keys are used in alphabetical order
   - `row_start`    default = '| '
   - `row_end`      default = ' |'
