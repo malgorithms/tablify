@@ -88,6 +88,7 @@ Output:
 
 ### Including row numbers
 
+```coffee-script
 data = [
 	[1,2,3], 
 	["cat","dog",Math.PI]
