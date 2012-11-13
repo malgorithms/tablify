@@ -1,7 +1,7 @@
 tablify
 =======
 
-In nodeJs programs, it's a pain to print data structures to the console. `tablify` turns an array of structures into a pretty-printed table.
+In NodeJs programs, printing data structures to the console can be annoying. `tablify` turns an array of structures into a pretty-printed table.
 
 For example, here's how tablify handles an array of arrays:
 
