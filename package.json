@@ -1,0 +1,23 @@
+{
+ "name": "tablify",
+ "description": "Quick and painless printing of tabular data",
+ "version": "0.0.1",
+ "directories": {
+  "lib": "./lib"
+ },
+ "main": "index.js",
+ "author": "Chris Coyne <ccoyne77@gmail.com>",
+ "devDependencies": {
+  "coffee-script" : "*"
+ },
+ "repository": {
+  "type": "git",
+  "url": "http://github.com/malgorithms/node-tablify"
+ },
+ "licenses": [
+  {
+   "type": "MIT",
+   "url": "http://github.com/malgorithms/tablify/raw/master/LICENSE"
+  }
+ ]
+}
