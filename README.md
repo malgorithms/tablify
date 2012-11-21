@@ -34,8 +34,8 @@ If your structure has a header row, pass the optional "has_header" param:
 ```coffee-script
 data = [
 	["name","age"]
-	["Chris","Max"] 
-	[10,8]
+	["Chris",10] 
+	["Max",8]
 ]
 console.log tablify data, {has_header: true}
 ```
@@ -45,8 +45,8 @@ Output:
 ---------------
 | name  | age |
 ---------------
-| Chris | Max |
-| 10    | 8   |
+| Chris | 10  |
+| Max   | 8   |
 ---------------
 ```
 
