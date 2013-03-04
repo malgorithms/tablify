@@ -10,16 +10,19 @@ It can generate a pretty table out of
 
 For example, here's how tablify handles an array of arrays:
 
-```coffee-script
+``` js
+
 tablify = require('tablify').tablify
 data = [
-	[1,2,3]
-	["cat","dog",Math.PI]
+  [1,2,3]
+  ["cat","dog",Math.PI]
 ]
 console.log tablify data
+
 ```
 
 Output:
+
 ```
 ---------------------------------
 | 1   | 2   | 3                 |
@@ -31,16 +34,17 @@ Output:
 
 If your structure has a header row, pass the optional "has_header" param:
 
-```coffee-script
+``` js
 data = [
-	["name","age"]
-	["Chris",10] 
-	["Max",8]
+  ["name","age"]
+  ["Chris",10] 
+  ["Max",8]
 ]
 console.log tablify data, {has_header: true}
 ```
 
 Output:
+
 ```
 ---------------
 | name  | age |
@@ -54,16 +58,17 @@ Output:
 
 Even with inconsistent keys, you can print an array of dictionaries. Column headers are calculated automatically using the union of all keys.
 
-```coffee-script
+``` js
 data = [
-	{name: "Chris", age: 16, gender: "M"} 
-	{name: "Max",   age: 12, gender: "M"}
-	{name: "Sam",            gender: "F", colors: ["Orange", "Blue"]}
+  {name: "Chris", age: 16, gender: "M"} 
+  {name: "Max",   age: 12, gender: "M"}
+  {name: "Sam",            gender: "F", colors: ["Orange", "Blue"]}
 ]
 console.log tablify data
 ```
 
 Output:
+
 ```
 -------------------------------------------------
 | # | age  | colors            | gender | name  |
@@ -81,6 +86,7 @@ console.log tablify data, {keys: ["age","name"]}
 ```
 
 Output:
+
 ```
 --------------------
 | # | age  | name  |
@@ -106,6 +112,7 @@ Any subset of these can be passed as a second parameter to tablify, in a diction
 
 
 # Installation
+
 ```
 > npm install -g tablify
 ```

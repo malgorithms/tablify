@@ -19,5 +19,6 @@
    "type": "MIT",
    "url": "http://github.com/malgorithms/tablify/raw/master/LICENSE"
   }
- ]
+ ],
+ "keywords": ["table", "ascii", "ansii", "cli", "terminal", "console"]
 }
