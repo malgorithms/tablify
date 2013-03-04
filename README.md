@@ -10,7 +10,7 @@ It can generate a pretty table out of
 
 For example, here's how tablify handles an array of arrays:
 
-``` coffee-script
+``` js
 
 tablify = require('tablify').tablify
 data = [
@@ -34,7 +34,7 @@ Output:
 
 If your structure has a header row, pass the optional "has_header" param:
 
-``` coffee-script
+``` js
 data = [
   ["name","age"]
   ["Chris",10] 
@@ -44,6 +44,7 @@ console.log tablify data, {has_header: true}
 ```
 
 Output:
+
 ```
 ---------------
 | name  | age |
@@ -57,7 +58,7 @@ Output:
 
 Even with inconsistent keys, you can print an array of dictionaries. Column headers are calculated automatically using the union of all keys.
 
-``` coffee-script
+``` js
 data = [
   {name: "Chris", age: 16, gender: "M"} 
   {name: "Max",   age: 12, gender: "M"}
