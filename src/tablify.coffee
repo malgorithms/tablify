@@ -17,11 +17,13 @@
 #     row_sep_char  default = "_"
 # --------------------------------------------------------------------------------
 
-exports.tablify = (arr, opts) ->
+exports = module.exports = (arr, opts) ->
   if isArrayOfArrays arr
     return exports.tablifyArrays arr, opts
   else
     return exports.tablifyDicts arr, opts
+
+exports.tablify = exports
 
 # --------------------------------------------------------------------------------
 
