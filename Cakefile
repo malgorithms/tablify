@@ -7,9 +7,8 @@ task 'build', 'build the whole jam', (cb) ->
   files = ('src/' + file for file in files when file.match(/\.coffee$/))
   clearLibJs ->
     runCoffee ['-c', '-o', 'lib/'].concat(files), ->
-      runCoffee ['-c', 'index.coffee'], ->
-        console.log "Done building."
-        cb() if typeof cb is 'function'
+      console.log "Done building."
+      cb() if typeof cb is 'function'
 
 runCoffee = (args, cb) ->
   proc =  spawn 'coffee', args

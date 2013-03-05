@@ -17,11 +17,13 @@
 #     row_sep_char  default = "_"
 # --------------------------------------------------------------------------------
 
-exports.tablify = (arr, opts) ->
+exports = module.exports = (arr, opts) ->
   if isArrayOfArrays arr
     return exports.tablifyArrays arr, opts
   else
     return exports.tablifyDicts arr, opts
+
+exports.tablify = exports
 
 # --------------------------------------------------------------------------------
 
@@ -62,14 +64,18 @@ exports.tablifyDicts = (arr, opts) ->
 class printer
   constructor: (opts) ->
     @opts               = opts or {}
-    @opts.spacer        = @opts.spacer or " | "
-    @opts.row_start     = @opts.row_start or "| "
-    @opts.row_end       = @opts.row_end   or " |"
-    @opts.row_sep_char  = "-"
+    @opts.spacer        = if @opts.spacer? then @opts.spacer else " | "
+    @opts.row_start     = if @opts.row_start? then @opts.spaces else  "| "
+    @opts.row_end       = if @opts.row_end? then @opts.row_end else " |"
+    @opts.row_sep_char  = if @opts.row_sep_char then @opts.row_sep_char else "-"
     @opts.has_header    = if @opts.has_header? then @opts.has_header else false
     @opts.show_index    = if @opts.show_index? then @opts.show_index else false
     @rows               = []
     @col_widths         = []
+
+    if @opts.border == false
+      opts.spacer = ' '
+      @opts.row_start = @opts.row_end = @opts.row_sep_char = ''
 
   push: (row_to_push) ->
     row = (cell for cell in row_to_push)
@@ -92,7 +98,9 @@ class printer
     total_width += width for width in @col_widths
     total_width += @opts.spacer.length * (@col_widths.length - 1)
 
-    strs.push @chars @opts.row_sep_char, total_width
+    if @opts.row_sep_char?
+      strs.push @chars @opts.row_sep_char, total_width
+
     for row, j in @rows
       line = @opts.row_start
       for width, i in @col_widths
@@ -101,9 +109,13 @@ class printer
           line += @opts.spacer
       line += @opts.row_end
       strs.push line
-      if (j is 0) and @opts.has_header
-        strs.push @chars @opts.row_sep_char, total_width
-    strs.push @chars @opts.row_sep_char, total_width
+
+      if @opts.row_sep_char
+        if (j is 0) and @opts.has_header
+          strs.push @chars @opts.row_sep_char, total_width
+
+    if @opts.row_sep_char?
+      strs.push @chars @opts.row_sep_char, total_width
 
     return strs.join "\n"
 
