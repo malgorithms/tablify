@@ -4,11 +4,13 @@
 # "arr" can be:
 #     1. an array of arrays (a.k.a. "AoA")
 #     2. or an array of dicts (a.k.a. "AoD")
+#     3. or a single dictionary (a.k.a. "asD")
 #
 #  options and defaults, depending on type of rows
 #
 #     has_header:   AoA: default = false; when true, shows first row separated
 #                   AoD: default = true;  when true, uses keys as column heads
+#                   asD: ignored
 #     show_index:   default = false; adds an extra column showing row number
 #     keys:         AOD: default = null; if set, only show these cols
 #     row_start     default = "| "
@@ -18,12 +20,25 @@
 # --------------------------------------------------------------------------------
 
 exports = module.exports = (arr, opts) ->
-  if isArrayOfArrays arr
-    return exports.tablifyArrays arr, opts
-  else
-    return exports.tablifyDicts arr, opts
+  if (typeof arr) is 'object'
+    if not Array.isArray arr
+      return exports.tablifySingleDict arr, opts
+    else if isArrayOfArrays arr
+      return exports.tablifyArrays arr, opts
+    else
+      return exports.tablifyDicts arr, opts
+  else throw new Error 'tablify cannot handle non-objects'
 
 exports.tablify = exports
+
+# --------------------------------------------------------------------------------
+
+exports.tablifySingleDict = (o, opts) ->
+  arr = []
+  for k,v of o
+    arr.push [k,v]
+  arr.sort (r1, r2) -> r1[0].localeCompare r2[0]
+  return exports.tablifyArrays arr, opts
 
 # --------------------------------------------------------------------------------
 

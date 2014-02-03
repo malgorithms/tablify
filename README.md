@@ -6,6 +6,7 @@ In NodeJs programs, printing structured arrays to the console can be annoying. `
 It can generate a pretty table out of
  - an array of arrays
  - an array of dictionaries; this is perhaps the most common thanks to (no)SQL
+ - a single dictionary, with each key/value pair getting a nice row
  - data with or without headers
 
 For example, here's how tablify handles an array of arrays:
@@ -97,12 +98,30 @@ Output:
 --------------------
 ```
 
+### A single dictionary:
+
+If tablify is passed an object that's not an array, it will pivot to show keys in one column and values in another.
+
+```
+console.log tablify {"name": "Chris", "age": 25, "obj": [1,2,3,{"foo":"bar"}]}
+```
+
+Output:
+
+```
+--------------------------------
+| age  | 25                    |
+| name | Chris                 |
+| obj  | [1,2,3,{"foo":"bar"}] |
+--------------------------------
+```
+
 # List of Options 
 
 Any subset of these can be passed as a second parameter to tablify, in a dictionary.
 
   - `show_index`   include a column showing the row number of each row. The default is `false` unless tablify is passed an array of dictionaries, in which case the default is `true`
-  - `has_header`   include the first row as a header; this defaults to `false` unless passed an array of dicts, in which case the keys are used as a first row and this defaults to `true`
+  - `has_header`   include the first row as a header; this defaults to `false` unless passed an array of dicts, in which case the keys are used as a first row and this defaults to `true`; if passing a single dictionary, this is ignored
   - `keys`         which columns to use, when tablifying an array of dictionaries; by default all keys are used in alphabetical order
   - `row_start`    default = '| '
   - `row_end`      default = ' |'
