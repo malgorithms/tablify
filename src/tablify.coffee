@@ -108,7 +108,7 @@ class printer
 
   stringify: ->
 
-    strs              = []
+    strs        = []
     total_width = @opts.row_start.length + @opts.row_end.length
     total_width += width for width in @col_widths
     total_width += @opts.spacer.length * (@col_widths.length - 1)
