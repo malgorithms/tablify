@@ -80,7 +80,7 @@ class printer
   constructor: (opts) ->
     @opts               = opts or {}
     @opts.spacer        = if @opts.spacer? then @opts.spacer else " | "
-    @opts.row_start     = if @opts.row_start? then @opts.spaces else  "| "
+    @opts.row_start     = if @opts.row_start? then @opts.row_start else  "| "
     @opts.row_end       = if @opts.row_end? then @opts.row_end else " |"
     @opts.row_sep_char  = if @opts.row_sep_char then @opts.row_sep_char else "-"
     @opts.has_header    = if @opts.has_header? then @opts.has_header else false
