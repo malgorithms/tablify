@@ -113,7 +113,7 @@ class printer
     total_width += width for width in @col_widths
     total_width += @opts.spacer.length * (@col_widths.length - 1)
 
-    if @opts.row_sep_char?
+    if @opts.row_sep_char.length
       strs.push @chars @opts.row_sep_char, total_width
 
     for row, j in @rows
@@ -129,7 +129,7 @@ class printer
         if (j is 0) and @opts.has_header
           strs.push @chars @opts.row_sep_char, total_width
 
-    if @opts.row_sep_char?
+    if @opts.row_sep_char.length
       strs.push @chars @opts.row_sep_char, total_width
 
     return strs.join "\n"
