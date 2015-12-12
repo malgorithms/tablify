@@ -31,6 +31,12 @@ Output:
 ---------------------------------
 ```
 
+# Installation
+
+```
+> npm install tablify
+```
+
 ### Showing headers
 
 If your structure has a header row, pass the optional "has_header" param:
@@ -129,9 +135,3 @@ Any subset of these can be passed as a second parameter to tablify, in a diction
   - `row_sep_char` default = '-'
 
 
-
-# Installation
-
-```
-> npm install -g tablify
-```
